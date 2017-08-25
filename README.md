@@ -1,9 +1,6 @@
 # coding_learn
 
 
-just test
-df
+This is a code learning website for Python and Django
 
-test
-
-come on test more
+The MxOnline folder is a example to me.
