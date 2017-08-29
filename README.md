@@ -1,9 +1,8 @@
 # coding_learn
 
 
-just test
-df
+This is a code learning website for Python and Django
 
-test
+The MxOnline folder is a example to me.
 
-come on test more
+this is for pytest branch
