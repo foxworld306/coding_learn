@@ -1,3 +1,5 @@
+# _*_ encoding:utf-8 _*_
+
 # url = input('enter your url:')
 # print('domain name is ' + url[11:-4])
 #
@@ -88,8 +90,25 @@
 # print(x)
 # L.sort()  #排序
 # print(L)
+#
+# #比较
+# L = list('123')
+# Q = reversed(L)
+# print(Q)
+# print(cmp(3,4))
+# 在Python3中，以下函数取代cmp(),返回值仍然为数字，而不是布尔值
+# lt(a, b) 相当于 a < b
+# le(a,b) 相当于 a <= b
+# eq(a,b) 相当于 a == b
+# ne(a,b) 相当于 a != b
+# gt(a,b) 相当于 a > b
+# ge(a, b)相当于 a>= b
 
-#比较
-L = list('123')
-Q = reversed(L)
-print(Q)
+# x = ['abc', 'xy', 'come']
+# x.sort(key=len)
+# print(x)
+# y = ['1', '2','7', '4', '9']
+# y.sort(reverse=True)
+# print(y)
+
+ 
