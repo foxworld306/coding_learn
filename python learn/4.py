@@ -1,4 +1,3 @@
-# _*_ encoding:utf-8 _*_
 
 
 # # 字典用{},字典中的key是唯一的，value不唯一

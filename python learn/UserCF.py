@@ -1,9 +1,4 @@
-# -*-coding:utf-8-*-
-''''' 
-Created on 2016年5月2日 
 
-@author: Gamer Think 
-'''
 from math import sqrt
 
 fp = open(r"uid_score_bid", "r")
@@ -76,7 +71,7 @@ class recommender:
         else:
             return (sum_xy - (sum_x * sum_y) / n) / denominator
 
-    def computeNearestNeighbor(self, username):
+    def computeNearestNeighbor(self, username): # 计算最近邻居
         distances = []
         for instance in self.data:
             if instance != username:
@@ -84,6 +79,7 @@ class recommender:
                 distances.append((instance, distance))
 
         distances.sort(key=lambda artistTuple: artistTuple[1], reverse=True)
+        # print(distances)
         return distances
 
         # 推荐算法的主体函数
@@ -95,8 +91,8 @@ class recommender:
         nearest = self.computeNearestNeighbor(user)
         # print (nearest)
 
-        userRatings = self.data[user]
-        #         print userRatings
+        userRatings = self.data[user] # 当前用户的所有评分记录
+        # print (userRatings)
         totalDistance = 0.0
         # 得住最近的k个近邻的总距离
         for i in range(self.k):
@@ -138,7 +134,6 @@ def adjustrecommend(id):
     bookid_list = []
     r = recommender(users)
     k, nearuser = r.recommend("%s" % id)
-    print(k[:3])
 
 
     for i in range(len(k)):
