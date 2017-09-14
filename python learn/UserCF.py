@@ -21,7 +21,7 @@ class recommender:
     # k：表示得出最相近的k的近邻
     # metric：表示使用计算相似度的方法
     # n：表示推荐book的个数
-    def __init__(self, data, k=3, metric='pearson', n=12):
+    def __init__(self, data, k=15, metric='pearson', n=12):
 
         self.k = k
         self.n = n
@@ -113,18 +113,18 @@ class recommender:
             neighborRatings = self.data[name]
 
             for artist in neighborRatings:
-                if not artist in userRatings:
-                    if artist not in recommendations:
-                        recommendations[artist] = (neighborRatings[artist] * weight)
+                if not artist in userRatings: # 对于邻居已经学习过的课程，如果当前用户没有学习过
+                    if artist not in recommendations: # 且不在推荐列表中
+                        recommendations[artist] = (neighborRatings[artist] * weight) # 则将该课程*权重（相似度）,成为一个字典
                     else:
                         recommendations[artist] = (recommendations[artist] + neighborRatings[artist] * weight)
 
-        recommendations = list(recommendations.items())
-        recommendations = [(self.convertProductID2name(k), v) for (k, v) in recommendations]
+        recommendations = list(recommendations.items()) # 将字典转化为序列
+        recommendations = [(self.convertProductID2name(k), v) for (k, v) in recommendations] # 取出ID
 
 
         # 做了一个排序
-        recommendations.sort(key=lambda artistTuple: artistTuple[1], reverse=True)
+        recommendations.sort(key=lambda artistTuple: artistTuple[1], reverse=True) # 排序
         # print(recommendations[:self.n])
 
         return recommendations[:self.n], nearest
