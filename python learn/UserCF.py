@@ -21,7 +21,7 @@ class recommender:
     # k：表示得出最相近的k的近邻
     # metric：表示使用计算相似度的方法
     # n：表示推荐book的个数
-    def __init__(self, data, k=15, metric='pearson', n=12):
+    def __init__(self, data, k=5, metric='pearson', n=12):
 
         self.k = k
         self.n = n
