@@ -2,7 +2,6 @@
 
 
 This is a code learning website for Python and Django
+this is based on Beginning Pyhon 2nd
 
-The MxOnline folder is a example to me.
-
-this is new test test
+Python learn folder is for beginning python from novice to professional
