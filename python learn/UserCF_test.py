@@ -1,11 +1,11 @@
 
 from math import sqrt
 
-fp = open(r"uid_score_bid", "r")
+fp = open(r"test.txt", "r")
 
 users = {}
 
-for line in open("uid_score_bid"):
+for line in open("test.txt"):
     lines = line.strip().split(",")
     if lines[0] not in users:
         users[lines[0]] = {}
@@ -141,8 +141,9 @@ def adjustrecommend(id):
     for i in range(len(k)):
 
         bookid_list.append(k[i][0])
+
     return bookid_list, nearuser[:15]
 
-bookid_list,near_list = adjustrecommend("changanamei")
-print ("bookid_list:",bookid_list)
+bookid_list,near_list = adjustrecommend("test")
+print ("book_list:",bookid_list)
 print ("near_list:",near_list)
