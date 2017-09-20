@@ -1,228 +1,47 @@
-admin,1,Water Operation
-charleswang,1,Water Operation
-chenmiao,1,Water Operation
-cherryhuang,1,Water Operation
-gaolu,1,Water Operation
-host@suez.com,1,Water Operation
-jasperjiang,1,Water Operation
-liangsen,1,Water Operation
-lidawei,1,Water Operation
-minmin,1,Water Operation
-riozhao,1,Water Operation
-shenyong,1,Water Operation
-sunyue,1,Water Operation
-yinheng,1,Water Operation
-zhaodanyang,1,Water Operation
-admin,2,Circular Economy
-charleswang,2,Circular Economy
-chenmiao,2,Circular Economy
-cherryhuang,2,Circular Economy
-gaolu,2,Circular Economy
-host@suez.com,2,Circular Economy
-jasperjiang,2,Circular Economy
-liangsen,2,Circular Economy
-lidawei,2,Circular Economy
-minmin,2,Circular Economy
-riozhao,2,Circular Economy
-shenyong,2,Circular Economy
-sunyue,2,Circular Economy
-yinheng,2,Circular Economy
-zhaodanyang,2,Circular Economy
-admin,3,Water Project Construction
-charleswang,3,Water Project Construction
-chenmiao,3,Water Project Construction
-cherryhuang,3,Water Project Construction
-gaolu,3,Water Project Construction
-host@suez.com,3,Water Project Construction
-jasperjiang,3,Water Project Construction
-liangsen,3,Water Project Construction
-lidawei,3,Water Project Construction
-minmin,3,Water Project Construction
-riozhao,3,Water Project Construction
-shenyong,3,Water Project Construction
-sunyue,3,Water Project Construction
-yinheng,3,Water Project Construction
-zhaodanyang,3,Water Project Construction
-admin,4,Sewage treatment process
-charleswang,4,Sewage treatment process
-chenmiao,4,Sewage treatment process
-cherryhuang,4,Sewage treatment process
-gaolu,4,Sewage treatment process
-host@suez.com,4,Sewage treatment process
-jasperjiang,4,Sewage treatment process
-liangsen,4,Sewage treatment process
-lidawei,4,Sewage treatment process
-minmin,4,Sewage treatment process
-riozhao,4,Sewage treatment process
-shenyong,4,Sewage treatment process
-sunyue,4,Sewage treatment process
-yinheng,4,Sewage treatment process
-zhaodanyang,4,Sewage treatment process
-admin,5,Computer system security
-charleswang,5,Computer system security
-chenmiao,5,Computer system security
-cherryhuang,5,Computer system security
-gaolu,5,Computer system security
-host@suez.com,5,Computer system security
-jasperjiang,5,Computer system security
-liangsen,5,Computer system security
-lidawei,5,Computer system security
-minmin,5,Computer system security
-riozhao,5,Computer system security
-shenyong,5,Computer system security
-sunyue,5,Computer system security
-yinheng,5,Computer system security
-zhaodanyang,5,Computer system security
-admin,6,Power BI introduction
-charleswang,6,Power BI introduction
-chenmiao,6,Power BI introduction
-cherryhuang,6,Power BI introduction
-gaolu,6,Power BI introduction
-host@suez.com,6,Power BI introduction
-jasperjiang,6,Power BI introduction
-liangsen,6,Power BI introduction
-lidawei,6,Power BI introduction
-minmin,6,Power BI introduction
-riozhao,6,Power BI introduction
-shenyong,6,Power BI introduction
-sunyue,6,Power BI introduction
-yinheng,6,Power BI introduction
-zhaodanyang,6,Power BI introduction
-admin,7,Full range of water supply services introduction
-charleswang,7,Full range of water supply services introduction
-chenmiao,7,Full range of water supply services introduction
-cherryhuang,7,Full range of water supply services introduction
-gaolu,7,Full range of water supply services introduction
-host@suez.com,7,Full range of water supply services introduction
-jasperjiang,7,Full range of water supply services introduction
-liangsen,7,Full range of water supply services introduction
-lidawei,7,Full range of water supply services introduction
-minmin,7,Full range of water supply services introduction
-riozhao,7,Full range of water supply services introduction
-shenyong,7,Full range of water supply services introduction
-sunyue,7,Full range of water supply services introduction
-yinheng,7,Full range of water supply services introduction
-zhaodanyang,7,Full range of water supply services introduction
-admin,8,Human resource management
-charleswang,8,Human resource management
-chenmiao,8,Human resource management
-cherryhuang,8,Human resource management
-gaolu,8,Human resource management
-host@suez.com,8,Human resource management
-jasperjiang,8,Human resource management
-liangsen,8,Human resource management
-lidawei,8,Human resource management
-minmin,8,Human resource management
-riozhao,8,Human resource management
-shenyong,8,Human resource management
-sunyue,8,Human resource management
-yinheng,8,Human resource management
-zhaodanyang,8,Human resource management
-admin,4,iLearn platform introduction
-charleswang,5,iLearn platform introduction
-chenmiao,3,iLearn platform introduction
-cherryhuang,5,iLearn platform introduction
-gaolu,3,iLearn platform introduction
-host@suez.com,3,iLearn platform introduction
-jasperjiang,4,iLearn platform introduction
-liangsen,4,iLearn platform introduction
-lidawei,2,iLearn platform introduction
-minmin,4,iLearn platform introduction
-riozhao,3,iLearn platform introduction
-shenyong,5,iLearn platform introduction
-sunyue,2,iLearn platform introduction
-yinheng,1,iLearn platform introduction
-zhaodanyang,7,iLearn platform introduction
-admin,3,Succeeding in the attention economy
-charleswang,3,Succeeding in the attention economy
-chenmiao,2,Succeeding in the attention economy
-cherryhuang,4,Succeeding in the attention economy
-gaolu,4,Succeeding in the attention economy
-host@suez.com,1,Succeeding in the attention economy
-jasperjiang,3,Succeeding in the attention economy
-liangsen,2,Succeeding in the attention economy
-lidawei,1,Succeeding in the attention economy
-minmin,5,Succeeding in the attention economy
-riozhao,5,Succeeding in the attention economy
-shenyong,5,Succeeding in the attention economy
-sunyue,2,Succeeding in the attention economy
-yinheng,3,Succeeding in the attention economy
-zhaodanyang,4,Succeeding in the attention economy
-admin,2,Don’t just set goals
-charleswang,4,Don’t just set goals
-chenmiao,4,Don’t just set goals
-cherryhuang,3,Don’t just set goals
-gaolu,5,Don’t just set goals
-host@suez.com,5,Don’t just set goals
-jasperjiang,5,Don’t just set goals
-liangsen,3,Don’t just set goals
-lidawei,5,Don’t just set goals
-minmin,2,Don’t just set goals
-riozhao,1,Don’t just set goals
-shenyong,2,Don’t just set goals
-sunyue,3,Don’t just set goals
-yinheng,3,Don’t just set goals
-zhaodanyang,3,Don’t just set goals
-admin,3,Innovation for smart water
-charleswang,5,Innovation for smart water
-chenmiao,6,Innovation for smart water
-cherryhuang,3,Innovation for smart water
-gaolu,5,Innovation for smart water
-host@suez.com,5,Innovation for smart water
-jasperjiang,3,Innovation for smart water
-liangsen,4,Innovation for smart water
-lidawei,2,Innovation for smart water
-minmin,3,Innovation for smart water
-riozhao,4,Innovation for smart water
-shenyong,5,Innovation for smart water
-sunyue,6,Innovation for smart water
-yinheng,4,Innovation for smart water
-zhaodanyang,5,Innovation for smart water
-admin,5,What is transverse management
-charleswang,5,What is transverse management
-chenmiao,5,What is transverse management
-cherryhuang,2,What is transverse management
-gaolu,2,What is transverse management
-host@suez.com,3,What is transverse management
-jasperjiang,3,What is transverse management
-liangsen,5,What is transverse management
-lidawei,2,What is transverse management
-minmin,4,What is transverse management
-riozhao,4,What is transverse management
-shenyong,5,What is transverse management
-sunyue,5,What is transverse management
-yinheng,5,What is transverse management
-zhaodanyang,5,What is transverse management
-admin,2,Analyse the organisation of your work
-charleswang,2,Analyse the organisation of your work
-chenmiao,2,Analyse the organisation of your work
-cherryhuang,3,Analyse the organisation of your work
-gaolu,4,Analyse the organisation of your work
-host@suez.com,3,Analyse the organisation of your work
-jasperjiang,3,Analyse the organisation of your work
-liangsen,2,Analyse the organisation of your work
-lidawei,4,Analyse the organisation of your work
-minmin,4,Analyse the organisation of your work
-riozhao,4,Analyse the organisation of your work
-shenyong,2,Analyse the organisation of your work
-sunyue,3,Analyse the organisation of your work
-yinheng,3,Analyse the organisation of your work
-zhaodanyang,2,Analyse the organisation of your work
-admin,2,Asserting your leadership
-charleswang,3,Asserting your leadership
-chenmiao,3,Asserting your leadership
-cherryhuang,3,Asserting your leadership
-gaolu,5,Asserting your leadership
-host@suez.com,2,Asserting your leadership
-jasperjiang,4,Asserting your leadership
-liangsen,3,Asserting your leadership
-lidawei,4,Asserting your leadership
-minmin,4,Asserting your leadership
-riozhao,5,Asserting your leadership
-shenyong,5,Asserting your leadership
-sunyue,5,Asserting your leadership
-yinheng,5,Asserting your leadership
-zhaodanyang,5,Asserting your leadership
-test,4,Sewage treatment process
-test,3,Asserting your leadership
-test,5,What is transverse management
+admin,1,3.44884737003014
+admin,3,3.44884737003014
+admin,4,3.44884737003014
+admin,2,3.44884737003014
+admin,8,3.44884737003014
+3,1,3.44884737003014
+3,2,3.44884737003014
+7,1,3.44884737003014
+5,16,3.44884737003014
+5,1,3.44884737003014
+4,16,3.44884737003014
+6,15,3.44884737003014
+1,15,3.44884737003014
+6,12,3.44884737003014
+5,4,3.44884737003014
+12,6,3.44884737003014
+4,11,3.44884737003014
+6,13,3.44884737003014
+3,14,3.44884737003014
+3,5,3.44884737003014
+13,7,3.44884737003014
+14,5,3.44884737003014
+15,3,3.44884737003014
+15,7,3.44884737003014
+10,6,3.44884737003014
+10,11,3.44884737003014
+13,6,3.44884737003014
+13,10,3.44884737003014
+13,13,3.44884737003014
+14,10,3.44884737003014
+15,13,3.44884737003014
+1,11,3.44884737003014
+1,13,3.44884737003014
+2,14,3.44884737003014
+2,16,3.44884737003014
+8,8,3.44884737003014
+9,6,3.44884737003014
+9,2,3.44884737003014
+1,10,3.44884737003014
+8,12,3.44884737003014
+8,16,3.44884737003014
+10,16,3.44884737003014
+7,16,3.44884737003014
+7,10,3.44884737003014
+7,6,3.44884737003014
+11,16,3.44884737003014
+6,14,3.44884737003014

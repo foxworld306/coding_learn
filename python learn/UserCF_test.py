@@ -1,5 +1,6 @@
 
 from math import sqrt
+import random
 
 fp = open(r"test.txt", "r")
 
@@ -7,6 +8,7 @@ users = {}
 
 for line in open("test.txt"):
     lines = line.strip().split(",")
+    lines[2] = random.uniform(1,5)
     if lines[0] not in users:
         users[lines[0]] = {}
         # print(users)
@@ -144,6 +146,6 @@ def adjustrecommend(id):
 
     return bookid_list, nearuser[:15]
 
-bookid_list,near_list = adjustrecommend("test")
+bookid_list,near_list = adjustrecommend("1")
 print ("book_list:",bookid_list)
 print ("near_list:",near_list)
