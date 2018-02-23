@@ -40,7 +40,7 @@ class recommender:
         if type(data).__name__ == 'dict':
             self.data = data
 
-    def convertProductID2name(self, id):
+    def ProductID2name(self, id):
 
         if id in self.productid2name:
             return self.productid2name[id]
@@ -56,18 +56,20 @@ class recommender:
         sum_x2 = 0
         sum_y2 = 0
         n = 0
+
         for key in rating1:
             if key in rating2:
                 n += 1
-                x = rating1[key]
-                y = rating2[key]
-                sum_xy += x * y
-                sum_x += x
-                sum_y += y
-                sum_x2 += pow(x, 2)
-                sum_y2 += pow(y, 2)
+                x = rating1[key] # x是当前用户学习过的课程的评分
+                y = rating2[key] # y是其他用户学习过的课程的评分
+                sum_xy += x * y #求乘积的和
+                sum_x += x #对当前用户所有偏好求和
+                sum_y += y #对其他用户所有偏好求和
+                sum_x2 += pow(x, 2) # x的平方和
+                sum_y2 += pow(y, 2) # y的平方和 构建矩阵？
         if n == 0:
             return 0
+
 
             # 皮尔逊相关系数计算公式
         denominator = sqrt(sum_x2 - pow(sum_x, 2) / n) * sqrt(sum_y2 - pow(sum_y, 2) / n)
@@ -77,11 +79,13 @@ class recommender:
             return (sum_xy - (sum_x * sum_y) / n) / denominator
 
     def NearestNeighbor(self, username): # 计算最近邻居
-        distances = []
+        distances = [] # 定义一个数组
         for instance in self.data:
             if instance != username:
+                # print self.data[username]
+# self.data[username]是当前用户学习过的课程及评分字典，data[instance]是其他用户学习过的课程和评分字典
                 distance = self.fn(self.data[username], self.data[instance])
-                distances.append((instance, distance))
+                distances.append((instance, distance)) # 生成其他用户与当前用户的相似度数组
 
         distances.sort(key=lambda artistTuple: artistTuple[1], reverse=True)
         # print(distances)
@@ -125,7 +129,7 @@ class recommender:
                         recommendations[artist] = (recommendations[artist] + neighborRatings[artist] * weight)
 
         recommendations = list(recommendations.items()) # 将字典转化为序列
-        recommendations = [(self.convertProductID2name(k), v) for (k, v) in recommendations] # 取出ID
+        recommendations = [(self.ProductID2name(k), v) for (k, v) in recommendations] # 取出ID
 
 
         # 做了一个排序
