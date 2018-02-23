@@ -145,5 +145,5 @@ def adjustrecommend(id):
     return bookid_list, nearuser[:5]
 
 bookid_list,near_list = adjustrecommend("Fang Hao")
-print ("bookid_list:",bookid_list)
+print ("courseid:",bookid_list)
 print ("near_list:",near_list)

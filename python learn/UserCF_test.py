@@ -49,34 +49,34 @@ class recommender:
 
             # 定义的计算相似度的公式，用的是皮尔逊相关系数计算方法
 
-    def pearson(self, rating1, rating2):
-        sum_xy = 0
-        sum_x = 0
-        sum_y = 0
-        sum_x2 = 0
-        sum_y2 = 0
+    def pearson(self, R1, R2):
+        sum_P = 0
+        sum_R1 = 0
+        sum_R2 = 0
+        sum_R1sq = 0
+        sum_R2sq = 0
         n = 0
 
-        for key in rating1:
-            if key in rating2:
+        for k in R1:
+            if k in R2:
                 n += 1
-                x = rating1[key] # x是当前用户学习过的课程的评分
-                y = rating2[key] # y是其他用户学习过的课程的评分
-                sum_xy += x * y #求乘积的和
-                sum_x += x #对当前用户所有偏好求和
-                sum_y += y #对其他用户所有偏好求和
-                sum_x2 += pow(x, 2) # x的平方和
-                sum_y2 += pow(y, 2) # y的平方和 构建矩阵？
+                x = R1[k] # x是当前用户学习过的课程的评分
+                y = R2[k] # y是其他用户学习过的课程的评分
+                sum_P += x * y #求乘积的和
+                sum_R1 += x #对当前用户所有偏好求和
+                sum_R2 += y #对其他用户所有偏好求和
+                sum_R1sq += pow(x, 2) # x的平方和
+                sum_R2sq += pow(y, 2) # y的平方和 构建矩阵？
         if n == 0:
             return 0
 
 
             # 皮尔逊相关系数计算公式
-        denominator = sqrt(sum_x2 - pow(sum_x, 2) / n) * sqrt(sum_y2 - pow(sum_y, 2) / n)
-        if denominator == 0:
+        den = sqrt(sum_R1sq - pow(sum_R1, 2) / n) * sqrt(sum_R2sq - pow(sum_R2, 2) / n)
+        if den == 0:
             return 0
         else:
-            return (sum_xy - (sum_x * sum_y) / n) / denominator
+            return (sum_P - (sum_R1 * sum_R2) / n) / den
 
     def NearestNeighbor(self, username): # 计算最近邻居
         distances = [] # 定义一个数组
@@ -151,6 +151,6 @@ def adjustrecommend(id):
 
     return bookid_list, nearuser[:15]
 
-bookid_list,near_list = adjustrecommend("Fang Hao")
-print ("book_list:",bookid_list)
+courseid, near_list = adjustrecommend("Fang Hao")
+print ("course_list:", courseid)
 print ("near_list:",near_list)
