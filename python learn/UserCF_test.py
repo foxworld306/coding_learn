@@ -1,14 +1,15 @@
+# coding=utf-8
+
 
 from math import sqrt
 import random
 
-fp = open(r"test.txt", "r")
+# fp = open(r"test.txt", "r")
 
 users = {}
 
-for line in open("test.txt"):
+for line in open("ilearn_data"):
     lines = line.strip().split(",")
-    lines[2] = random.uniform(1,5)
     if lines[0] not in users:
         users[lines[0]] = {}
         # print(users)
@@ -75,7 +76,7 @@ class recommender:
         else:
             return (sum_xy - (sum_x * sum_y) / n) / denominator
 
-    def computeNearestNeighbor(self, username): # 计算最近邻居
+    def NearestNeighbor(self, username): # 计算最近邻居
         distances = []
         for instance in self.data:
             if instance != username:
@@ -92,7 +93,7 @@ class recommender:
         # 定义一个字典，用来存储推荐的书单和分数
         recommendations = {}
         # 计算出user与所有其他用户的相似度，返回一个list
-        nearest = self.computeNearestNeighbor(user)
+        nearest = self.NearestNeighbor(user)
         # print (nearest)
 
         userRatings = self.data[user] # 当前用户的所有评分记录
@@ -146,6 +147,6 @@ def adjustrecommend(id):
 
     return bookid_list, nearuser[:15]
 
-bookid_list,near_list = adjustrecommend("1")
+bookid_list,near_list = adjustrecommend("Fang Hao")
 print ("book_list:",bookid_list)
 print ("near_list:",near_list)

@@ -1,11 +1,12 @@
+# coding=utf-8
 
 from math import sqrt
 
-fp = open(r"uid_score_bid", "r")
+# fp = open(r"uid_score_bid1", "r")
 
 users = {}
 
-for line in open("uid_score_bid"):
+for line in open("ilearn_data"):
     lines = line.strip().split(",")
     if lines[0] not in users:
         users[lines[0]] = {}
@@ -23,7 +24,7 @@ class recommender:
     # k：表示得出最相近的k的近邻
     # metric：表示使用计算相似度的方法
     # n：表示推荐book的个数
-    def __init__(self, data, k=5, metric='pearson', n=12):
+    def __init__(self, data, k=5, metric='pearson', n=5):
 
         self.k = k
         self.n = n
@@ -127,7 +128,7 @@ class recommender:
 
         # 做了一个排序
         recommendations.sort(key=lambda artistTuple: artistTuple[1], reverse=True) # 排序
-        # print(recommendations[:self.n])
+        print(recommendations[:self.n])
 
         return recommendations[:self.n], nearest
 
@@ -141,8 +142,8 @@ def adjustrecommend(id):
     for i in range(len(k)):
 
         bookid_list.append(k[i][0])
-    return bookid_list, nearuser[:15]
+    return bookid_list, nearuser[:5]
 
-bookid_list,near_list = adjustrecommend("changanamei")
+bookid_list,near_list = adjustrecommend("Fang Hao")
 print ("bookid_list:",bookid_list)
 print ("near_list:",near_list)
