@@ -1,8 +1,8 @@
-1. 先安装mysql
-   安装的时候需要密码设置为root
-2. 通过navicat 新建数据库
-3. navicat 导入sql文件
-4. pip install -r requirements.txt 安装依赖包
-5. http://www.lfd.uci.edu/~gohlke/pythonlibs/#mysql-python 下载 MySQL_python?1.2.5?cp27?none?win_amd64.whl
-    然后pip install MySQL_python?1.2.5?cp27?none?win_amd64.whl 安装mysqldb驱动
+1. 锟饺帮拷装mysql
+   锟斤拷装锟斤拷时锟斤拷锟斤拷要锟斤拷锟斤拷锟斤拷锟斤拷为root
+2. 通锟斤拷navicat 锟铰斤拷锟斤拷锟捷匡拷
+3. navicat 锟斤拷锟斤拷sql锟侥硷拷
+4. pip install -r requirements.txt 锟斤拷装锟斤拷锟斤拷锟斤拷
+5. http://www.lfd.uci.edu/~gohlke/pythonlibs/#mysql-python 锟斤拷锟斤拷 MySQL_python?1.2.5?cp27?none?win_amd64.whl
+    然锟斤拷pip install MySQL_python?1.2.5?cp27?none?win_amd64.whl 锟斤拷装mysqldb锟斤拷锟斤拷
 6. python manage.py runserver
