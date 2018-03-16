@@ -21,8 +21,8 @@ class QiniuCloud(Storage):
         self.bucket_name = qiniuconfig['qiniu_bucket_name']
         self.bucket_domain_name = qiniuconfig['qiniu_bucket_domain_name']
         self.secure_url = qiniuconfig['qiniu_secure_url']
-        self._auth = Auth(self.access_key, self.secret_key)
-        self._bucket_manager = BucketManager(self._auth)
+        self.auth = Auth(self.access_key, self.secret_key)
+        self.bucket_manager = BucketManager(self._auth)
 
     def open(self, name, mode='rb'):
         return self._open(name, mode)
@@ -41,12 +41,20 @@ class QiniuCloud(Storage):
         return name
 
     def upload_data(self, name, content):
-        token = self.auth.upload_token(self.bucket_name)
+        # 预转持久化policy
+        pipeline = 'video_upload' #私有上传队列
+        fops = 'avthumb/mp4/vcodec/libx264' # 设置转码参数，将上传视频转换为MP4文件，采用libx264视频编码器
+        policy = {
+            'persistentOps':fops,
+            'persistentPipeline':pipeline
+        }
+
+        token = self.auth.upload_token(self.bucket_name, 3600, policy)
         ret, info = put_data(token, name, content)
         if ret.get('key', None) == None:
             raise Exception('Upload Error')
 
-
+           # 将上传的视频转码为MP4的视频文件，保存到目标Bucket_Name, 且文件名为自定义文件key，原上传视频保存到bucket_name空间，且文件名为key。
             # self.access_key = settings.qiniu_access_key
             # self.secret_key = settings.qiniu_secret_key
             # self.bucket_name = settings.qiniu_bucket_name
