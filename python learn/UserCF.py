@@ -106,8 +106,9 @@ class recommender:
             # 将与user最相近的k个人中user没有看过的书推荐给user，并且这里又做了一个分数的计算排名
         for i in range(self.k):
 
-            # 第i个人的与user的相似度，转换到[0,1]之间
+            # 第i个人的与user的相似度，转换到[0,1]之间。引入权重的目的是让更相似的用户学习过的课程获得更高的推荐优先权
             weight = nearest[i][1] / totalDistance
+            print(weight)
 
             # 第i个人的name
             name = nearest[i][0]
