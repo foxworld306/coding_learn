@@ -112,7 +112,7 @@ class recommender:
             # 将与user最相近的k个人中user没有看过的书推荐给user，并且这里又做了一个分数的计算排名
         for i in range(self.k):
 
-            # 第i个人的与user的相似度，转换到[0,1]之间
+            # 最近的k个用户中，第i个人的与user的相似度，转换到[0,1]之间，作为权重
             weight = nearest[i][1] / totalDistance
 
             # 第i个人的name
