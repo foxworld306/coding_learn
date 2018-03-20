@@ -21,6 +21,7 @@ class QiniuCloud(Storage):
         self.bucket_name = qiniuconfig['qiniu_bucket_name']
         self.bucket_domain_name = qiniuconfig['qiniu_bucket_domain_name']
         self.secure_url = qiniuconfig['qiniu_secure_url']
+        self.prefix = qiniuconfig['prefix']
         self.auth = Auth(self.access_key, self.secret_key)
         self.bucket_manager = BucketManager(self._auth)
 
@@ -53,6 +54,8 @@ class QiniuCloud(Storage):
         ret, info = put_data(token, name, content)
         if ret.get('key', None) == None:
             raise Exception('Upload Error')
+        else:
+            return (u'Success')
 
            # 将上传的视频转码为MP4的视频文件，保存到目标Bucket_Name, 且文件名为自定义文件key，原上传视频保存到bucket_name空间，且文件名为key。
             # self.access_key = settings.qiniu_access_key
@@ -78,3 +81,14 @@ class QiniuCloud(Storage):
 #         self.bucket_domain = bucket_domain
 #         self.bucket_manager = BucketManager(self.auth)
 #         self.secure_url = secure_url
+
+
+QINIU_CONFIG = {
+
+    'qiniu_access_key': 'OwCPftAgRMwbWqUiaJs3JCfTqPjc',
+    'qiniu_secret_key': 'i3jkKvzQNWmcBXPVyT9wiVl8K_V0',
+    'qiniu_bucket_name': 'ilearn',
+    'qiniu_bucket_domain_name': 'www.ilearn.com',
+    'PREFIX': 'http://',
+    'secure_url': False,
+}
