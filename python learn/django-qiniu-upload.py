@@ -54,6 +54,8 @@ class QiniuCloud(Storage):
         ret, info = put_data(token, name, content)
         if ret.get('key', None) == None:
             raise Exception('Upload Error')
+        else:
+            return (u'Success')
 
            # 将上传的视频转码为MP4的视频文件，保存到目标Bucket_Name, 且文件名为自定义文件key，原上传视频保存到bucket_name空间，且文件名为key。
             # self.access_key = settings.qiniu_access_key
