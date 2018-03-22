@@ -102,7 +102,7 @@ class recommender:
             sum_similarity += similar_list[i][1] # 最相似的k个用户的总距离
         if sum_similarity == 0.0:
             sum_similarity = 1.0
-        total = 0.0
+        totalscore = 0.0
         sim_sum = 0.0
         for i in range(self.k):
             # 最近的k个用户中，第i个人的与user的相似度，转换到[0,1]之间，作为权重
@@ -114,11 +114,11 @@ class recommender:
                 if not courses in userRatings: # 对于邻居已经学习过的课程，如果当前用户没有学习过
                     if courses not in recommend_list: # 且不在推荐列表中
                         sim_sum += similar_list[i][1]
-                        total += similar_userrating[courses]
+                        totalscore += similar_userrating[courses] * similar_list[i][1]
 
-                        recommend_list[courses] = (total / sim_sum)
+                        recommend_list[courses] = (totalscore / sim_sum)
                     else:
-                        recommend_list[courses] = (recommend_list[courses] + (total / sim_sum))
+                        recommend_list[courses] = (recommend_list[courses] + (totalscore / sim_sum))
             print recommend_list
 
                     #     recommend_list[courses] = (similar_userrating[courses] * W) # 则将该课程*权重（相似度）
