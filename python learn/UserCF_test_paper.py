@@ -38,7 +38,7 @@ class recommender:
         if self.metric == 'pearson':
             self.fn = self.pearson
         if type(data).__name__ == 'dict':
-            self.data = data
+            self.couse_rating = data
 
     def id2name(self, id):
 
@@ -80,25 +80,23 @@ class recommender:
 
     def UserSimilarity(self, currentuser): # 计算最相似用户
         similarity = [] # 定义一个数组
-        for users in self.data:
+        for users in self.couse_rating:
             if users != currentuser:
-                # print self.data[currentuser]
-# self.data[currentuser]是当前用户学习过的课程及评分字典，data[users]是其他用户学习过的课程和评分字典
-                similar = self.pearson(self.data[currentuser], self.data[users])
+# self.data[currentuser]是当前用户学习过的课程及评分，data[users]是其他用户学习过的课程和评分
+                similar = self.pearson(self.couse_rating[currentuser], self.couse_rating[users])
                 similarity.append((users, similar)) # 生成其他用户与当前用户的相似度数组
-
         similarity.sort(key=lambda artistTuple: artistTuple[1], reverse=True)
-        # print(similarity[:5])
         return similarity
+        # print(similarity[:5])
 
         # 推荐算法的主体函数
 
-    def recommend(self, user):
+    def recommendation(self, user):
         # 定义一个字典，用来存储推荐的书单和分数
         recommend_list = {}
         # 计算出当前user与其他用户的相似度，返回一个list
         similar_list = self.UserSimilarity(user)
-        userRatings = self.data[user] # 当前用户的所有评分记录
+        userRatings = self.couse_rating[user] # 当前用户的所有评分记录
         sum_similarity = 0.0
         for i in range(self.k):
             sum_similarity += similar_list[i][1] # 最相似的k个用户的总距离
@@ -110,7 +108,7 @@ class recommender:
             W = similar_list[i][1] / sum_similarity
 
             similar_username = similar_list[i][0]
-            similar_userrating = self.data[similar_username] # 第i个用户评分过的课程和相应的打分
+            similar_userrating = self.couse_rating[similar_username] # 第i个用户评分过的课程和相应的打分
             for courses in similar_userrating:
                 if not courses in userRatings: # 对于邻居已经学习过的课程，如果当前用户没有学习过
                     if courses not in recommend_list: # 且不在推荐列表中
@@ -126,7 +124,7 @@ class recommender:
 def adjustrecommend(id):
     recommend_courses = []
     r = recommender(users)
-    k, similar_list = r.recommend("%s" % id)
+    k, similar_list = r.recommendation("%s" % id)
 
 
     for i in range(len(k)):
