@@ -117,9 +117,10 @@ class recommender:
                         totalscore += similar_userrating[courses] * similar_list[i][1]
 
                         recommend_list[courses] = (totalscore / sim_sum)
+
                     else:
                         recommend_list[courses] = (recommend_list[courses] + (totalscore / sim_sum))
-            print recommend_list
+            # print recommend_list
 
                     #     recommend_list[courses] = (similar_userrating[courses] * W) # 则将该课程*权重（相似度）
                     # else:
