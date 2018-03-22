@@ -78,17 +78,17 @@ class recommender:
         else:
             return (sum_P - (sum_R1 * sum_R2) / n) / den
 
-    def UserSimilarity(self, username): # 计算最近邻居
+    def UserSimilarity(self, currentuser): # 计算最相似用户
         similarity = [] # 定义一个数组
-        for userlist in self.data:
-            if userlist != username:
-                # print self.data[username]
-# self.data[username]是当前用户学习过的课程及评分字典，data[userlist]是其他用户学习过的课程和评分字典
-                similar = self.pearson(self.data[username], self.data[userlist])
-                similarity.append((userlist, similar)) # 生成其他用户与当前用户的相似度数组
+        for users in self.data:
+            if users != currentuser:
+                # print self.data[currentuser]
+# self.data[currentuser]是当前用户学习过的课程及评分字典，data[users]是其他用户学习过的课程和评分字典
+                similar = self.pearson(self.data[currentuser], self.data[users])
+                similarity.append((users, similar)) # 生成其他用户与当前用户的相似度数组
 
         similarity.sort(key=lambda artistTuple: artistTuple[1], reverse=True)
-        # print(similarity)
+        # print(similarity[:5])
         return similarity
 
         # 推荐算法的主体函数
@@ -96,47 +96,30 @@ class recommender:
     def recommend(self, user):
         # 定义一个字典，用来存储推荐的书单和分数
         recommend_list = {}
-        # 计算出user与所有其他用户的相似度，返回一个list
+        # 计算出当前user与其他用户的相似度，返回一个list
         similar_list = self.UserSimilarity(user)
-        # print (similar_list)
-
         userRatings = self.data[user] # 当前用户的所有评分记录
-        # print (userRatings)
         sum_similarity = 0.0
-        # 得住最近的k个近邻的总距离
         for i in range(self.k):
-            sum_similarity += similar_list[i][1]
+            sum_similarity += similar_list[i][1] # 最相似的k个用户的总距离
         if sum_similarity == 0.0:
             sum_similarity = 1.0
 
-            # 将与user最相近的k个人中user没有看过的书推荐给user，并且这里又做了一个分数的计算排名
         for i in range(self.k):
-
             # 最近的k个用户中，第i个人的与user的相似度，转换到[0,1]之间，作为权重
             W = similar_list[i][1] / sum_similarity
 
-            # 第i个人的name
             similar_username = similar_list[i][0]
-
-            # 第i个用户看过的书和相应的打分
-            similar_userrating = self.data[similar_username]
-
+            similar_userrating = self.data[similar_username] # 第i个用户评分过的课程和相应的打分
             for courses in similar_userrating:
                 if not courses in userRatings: # 对于邻居已经学习过的课程，如果当前用户没有学习过
                     if courses not in recommend_list: # 且不在推荐列表中
-                        recommend_list[courses] = (similar_userrating[courses] * W) # 则将该课程*权重（相似度）,成为一个字典
+                        recommend_list[courses] = (similar_userrating[courses] * W) # 则将该课程*权重（相似度）
                     else:
-                        recommend_list[courses] = (recommend_list[courses] + similar_userrating[courses] * W)
-
+                        recommend_list[courses] = (recommend_list[courses] + similar_userrating[courses] * W) # 求和
         recommend_list = list(recommend_list.items()) # 将字典转化为序列
         recommend_list = [(self.id2name(k), v) for (k, v) in recommend_list] # 取出ID
-
-
-        # 做了一个排序
         recommend_list.sort(key=lambda artistTuple: artistTuple[1], reverse=True) # 排序
-        # print(recommend_list[:self.n])
-        # print similar_list
-
         return recommend_list[:self.n], similar_list
 
 
