@@ -8,7 +8,7 @@ import random
 
 users = {}
 
-for line in open("ilearn_data"):
+for line in open("testtest"):
     lines = line.strip().split(",")
     if lines[0] not in users:
         users[lines[0]] = {}
@@ -88,7 +88,7 @@ class recommender:
                 similarity.append((userlist, similar)) # 生成其他用户与当前用户的相似度数组
 
         similarity.sort(key=lambda artistTuple: artistTuple[1], reverse=True)
-        # print(similarity)
+        print(similarity)
         return similarity
 
         # 推荐算法的主体函数

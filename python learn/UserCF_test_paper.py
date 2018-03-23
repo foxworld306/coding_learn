@@ -8,7 +8,7 @@ import random
 
 users = {}
 
-for line in open("ilearn_data"):
+for line in open("testtest"):
     lines = line.strip().split(",")
     if lines[0] not in users:
         users[lines[0]] = {}
@@ -128,7 +128,9 @@ class recommender:
         recommend_list = list(recommend_list.items()) # 将字典转化为序列
         recommend_list = [(self.id2name(k), v) for (k, v) in recommend_list] # 取出ID
         recommend_list.sort(key=lambda artistTuple: artistTuple[1], reverse=True) # 排序
+        # print recommend_list [:3]
         return recommend_list[:self.n], similar_list
+
 
 
 def adjustrecommend(id):
@@ -141,8 +143,9 @@ def adjustrecommend(id):
 
         recommend_courses.append(k[i][0])
 
-    return recommend_courses, similar_list[:5]
+    return recommend_courses, similar_list[:6]
 
 courseid, similar_users = adjustrecommend("Fang Hao")
-print ("course_list:", courseid)
+
+print ("recommend_courses:", courseid)
 print ("similar_users:", similar_users)
