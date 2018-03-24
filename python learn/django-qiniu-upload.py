@@ -28,16 +28,13 @@ class QiniuCloud(Storage):
     def open(self, name, mode='rb'):
         return self._open(name, mode)
 
-
     def save(self, name, content, max_length=None):
         if name is None:
             name = content.name
-
         if hasattr(content, 'chunks'):
             content_str = b''.join(chunk for chunk in content.chunks())
         else:
             content_str = content.read()
-
         self.upload_data(name, content_str)
         return name
 
@@ -49,7 +46,6 @@ class QiniuCloud(Storage):
             'persistentOps':fops,
             'persistentPipeline':pipeline
         }
-
         token = self.auth.upload_token(self.bucket_name, 3600, policy)
         ret, info = put_data(token, name, content)
         if ret.get('key', None) == None:

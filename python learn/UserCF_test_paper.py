@@ -8,7 +8,7 @@ import random
 
 users = {}
 
-for line in open("testtest"):
+for line in open("testtesttest"):
     lines = line.strip().split(",")
     if lines[0] not in users:
         users[lines[0]] = {}
