@@ -115,9 +115,7 @@ class recommender:
                     if courses not in recommend_list: # 且不在推荐列表中
                         sim_sum += similar_list[i][1]
                         totalscore += similar_userrating[courses] * similar_list[i][1]
-
                         recommend_list[courses] = (totalscore / sim_sum)
-
                     else:
                         recommend_list[courses] = (recommend_list[courses] + (totalscore / sim_sum))
             # print recommend_list
