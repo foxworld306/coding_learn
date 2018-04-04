@@ -114,6 +114,7 @@ class recommender:
 
             # 最近的k个用户中，第i个人的与user的相似度，转换到[0,1]之间，作为权重
             W = similar_list[i][1] / sum_similarity
+            # print(W)
 
             # 第i个人的name
             similar_username = similar_list[i][0]
