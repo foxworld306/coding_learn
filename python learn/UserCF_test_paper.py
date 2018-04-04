@@ -26,7 +26,7 @@ class recommender:
     # k：表示得出最相近的k的近邻
     # metric：表示使用计算相似度的方法
     # n：表示推荐book的个数
-    def __init__(self, data, k=5, metric='pearson', n=5):
+    def __init__(self, data, k=6, metric='pearson', n=10):
 
         self.k = k
         self.n = n
@@ -49,6 +49,8 @@ class recommender:
 
             # 定义的计算相似度的公式，用的是皮尔逊相关系数计算方法
 
+
+
     def pearson(self, R1, R2):
         sum_P = 0
         sum_R1 = 0
@@ -66,7 +68,7 @@ class recommender:
                 sum_R1 += x #对当前用户所有偏好求和
                 sum_R2 += y #对其他用户所有偏好求和
                 sum_R1sq += pow(x, 2) # x的平方和
-                sum_R2sq += pow(y, 2) # y的平方和 构建矩阵？
+                sum_R2sq += pow(y, 2) # y的平方和
         if n == 0:
             return 0
 
@@ -78,6 +80,32 @@ class recommender:
         else:
             return (sum_P - (sum_R1 * sum_R2) / n) / den
 
+    def cos_like(self, rating1, rating2):
+        innerProd = 0
+        vector_x = 0
+        vectoy_y = 0
+        for key in rating1:
+            if key in rating2:
+                x = rating1[key]
+                y = rating2[key]
+                innerProd += x * y
+                vector_x += x ** 2
+                vectoy_y += y ** 2
+        if sqrt(vector_x) * sqrt(vectoy_y) == 0:
+            return 0
+        else:
+            return innerProd / (sqrt(vector_x) * sqrt(vectoy_y))
+
+
+    def jaccard(self, p, q):
+        c = [a for i in p if v in b]
+        return float(len(c)) / (len(a) + len(b) - len(b))
+
+    # print cos_like(users['Angelica'], users['Bill'])
+    # print pearson(users['Angelica'], users['Bill'])
+    # for list in (recommend('Veronica', users)):
+    #     print list
+
     def UserSimilarity(self, currentuser): # 计算最相似用户
         similarity = [] # 定义一个数组
         for users in self.couse_rating:
@@ -85,6 +113,7 @@ class recommender:
 # self.data[currentuser]是当前用户学习过的课程及评分，data[users]是其他用户学习过的课程和评分
                 similar = self.pearson(self.couse_rating[currentuser], self.couse_rating[users])
                 similarity.append((users, similar)) # 生成其他用户与当前用户的相似度数组
+                print similarity
         similarity.sort(key=lambda artistTuple: artistTuple[1], reverse=True)
         return similarity
         # print(similarity[:5])
@@ -115,9 +144,7 @@ class recommender:
                     if courses not in recommend_list: # 且不在推荐列表中
                         sim_sum += similar_list[i][1]
                         totalscore += similar_userrating[courses] * similar_list[i][1]
-
                         recommend_list[courses] = (totalscore / sim_sum)
-
                     else:
                         recommend_list[courses] = (recommend_list[courses] + (totalscore / sim_sum))
             # print recommend_list
