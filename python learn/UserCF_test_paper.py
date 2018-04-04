@@ -49,6 +49,13 @@ class recommender:
 
             # 定义的计算相似度的公式，用的是皮尔逊相关系数计算方法
 
+    def jaccard(self, user, user2):
+
+        c = [val for val in user if val in user2]
+        d = list(set(user).union(set(user2)))
+
+        return float(len(c)) / (len(d))
+
 
 
     def pearson(self, R1, R2):
@@ -97,9 +104,9 @@ class recommender:
             return innerProd / (sqrt(vector_x) * sqrt(vectoy_y))
 
 
-    def jaccard(self, p, q):
-        c = [a for i in p if v in b]
-        return float(len(c)) / (len(a) + len(b) - len(b))
+    # def jaccard(self, p, q):
+    #     c = [a for i in p if v in b]
+    #     return float(len(c)) / (len(a) + len(b) - len(b))
 
     # print cos_like(users['Angelica'], users['Bill'])
     # print pearson(users['Angelica'], users['Bill'])
