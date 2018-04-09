@@ -118,7 +118,7 @@ class recommender:
         for users in self.couse_rating:
             if users != currentuser:
 # self.data[currentuser]是当前用户学习过的课程及评分，data[users]是其他用户学习过的课程和评分
-                similar = self.pearson(self.couse_rating[currentuser], self.couse_rating[users])
+                similar = self.jaccard(self.couse_rating[currentuser], self.couse_rating[users])
                 similarity.append((users, similar)) # 生成其他用户与当前用户的相似度数组
                 print similarity
         similarity.sort(key=lambda artistTuple: artistTuple[1], reverse=True)
