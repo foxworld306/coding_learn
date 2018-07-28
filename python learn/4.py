@@ -44,6 +44,7 @@
 # # Only try to print information if the name is a valid key in
 # # our dictionary:
 # if name in people: print("{}'s {} is {}.".format(name, labels[key], people[name][key]))
-scores=[("zhang",100),("wang",98),("li",78)]
+scores = [("zhang", 100), ("wang", 98), ("li", 78)]
 print(scores[0])
 print(scores[0][0])
+
