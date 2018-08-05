@@ -70,6 +70,15 @@ class BannerCourse(Course):
             ("not all", "can watch part"),
         )
 
+class PremiumCourse(Course):
+    class Meta:
+        verbose_name = "高级课程"
+        verbose_name_plural = verbose_name
+        proxy = True
+        permissions = (
+            ("Premium_Courses_Allowed", "高级课程权限"),
+            ("Open_Courses_Allowed", "公开课程权限")
+        )
 
 class Lesson(models.Model):
     course = models.ForeignKey(Course, verbose_name=u"课程")
