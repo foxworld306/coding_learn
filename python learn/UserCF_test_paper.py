@@ -163,9 +163,26 @@ class recommender:
         recommend_list = [(self.id2name(k), v) for (k, v) in recommend_list] # 取出ID
         recommend_list.sort(key=lambda artistTuple: artistTuple[1], reverse=True) # 排序
         # print recommend_list [:3]
+        self.recommendlist = recommend_list[:5]
         return recommend_list[:self.n], similar_list
 
-
+    # def getPrecision(self, user):
+    #     user = [i[0] for i in self.username2id[user]]
+    #     recommand = [i[0] for i in self.recommendlist]
+    #     count = 0.0
+    #     cost =0.0
+    #     if (len(user) >= len(recommand)):
+    #         for i in recommand:
+    #             if (i in user):
+    #                 count += 1.0
+    #         cost = count / len(recommand)
+    #     else:
+    #         for i in user:
+    #             if (i in recommand):
+    #                 count += 1.0
+    #         cost = count / len(user)
+    #     print("准确率： %.2f %%" % (cost * 100))
+    #     return cost
 
 def adjustrecommend(id):
     recommend_courses = []
@@ -183,3 +200,6 @@ courseid, similar_users = adjustrecommend("Fang Hao")
 
 print ("recommend_courses:", courseid)
 print ("similar_users:", similar_users)
+
+
+
