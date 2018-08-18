@@ -15,3 +15,4 @@ for link in bsObj.find("div", {"id": "bodyContent"}).findAll("a", href=re.compil
     if 'href' in link.attrs:
         print(link.attrs['href'])
 
+
