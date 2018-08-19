@@ -17,6 +17,11 @@ from bs4 import BeautifulSoup
 html = urlopen('http://www.pythonscraping.com/pages/page3.html')
 bs = BeautifulSoup(html, 'lxml')
 
+<<<<<<< HEAD
 for child in bs.find('table',{'id':'giftList'}).children:
     print(child)
     print()
+=======
+for child in bs.find('table', {'id': 'giftList'}).children:
+    print(child)
+>>>>>>> a994ee957b3bfad09801b2c67cbf96420a0fabc4
